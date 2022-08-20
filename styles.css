@@ -21,6 +21,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    transition: transform 0.4s ease-in-out;
 }
 
 .left-slide>div {
@@ -42,20 +43,20 @@ p {
 }
 
 .right-slide {
-    height: 100vh;
+    height: 100%;
     width: 65%;
     position: absolute;
     top: 0;
     left: 35%;
+    transition: transform 0.4s ease-in-out;
 }
 
 .right-slide>div {
     height: 100%;
     width: 100%;
-    position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: center center; */
+    background-position: center center;
 }
 
 button {
