@@ -10,8 +10,13 @@ let activeSlideIndex = 0
 
 leftSlide.style.top = `-${(slidesLength - 1) * 100}vh`
 
-upButton.addEventListener('click', () => changeSlide('up'))
+upButton.addEventListener('click', () => {
+    clearTimeout(autoSlide);
+    changeSlide('up')
+})
 downButton.addEventListener('click', () => changeSlide('down'))
+
+let autoSlide
 
 
 const changeSlide = (direction) => {
@@ -30,5 +35,14 @@ const changeSlide = (direction) => {
     }
     rightSlide.style.transform = `translateY(-${(activeSlideIndex * sliderHeight)}px)`
     leftSlide.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+    autoSlide = setTimeout(() => {
+        activeSlideIndex++;
+        if (activeSlideIndex > slidesLength - 1) {
+            activeSlideIndex = 0
+        }
+        changeSlide()
+    }, 3000);
 
 }
+
+changeSlide();
